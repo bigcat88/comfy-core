@@ -31,3 +31,6 @@ include = [
   "/comfy_core",
   "/README.md",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["comfy_core"]
