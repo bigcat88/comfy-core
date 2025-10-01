@@ -61,5 +61,5 @@ This repository’s CI mirrors ComfyUI releases:
 
 ## Notes
 
-* Pre‑releases of ComfyUI may map to the corresponding base version (e.g. `0.3.61.dev*` → `0.3.61`) for resolver compatibility.
+* Pre‑releases of ComfyUI may map to the corresponding base version (e.g. `0.3.61.dev*` → `0.3.61`).
 * Do **not** import `comfy-core`. It provides metadata only.
