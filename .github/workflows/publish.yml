@@ -1,0 +1,32 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish_pypi:
+    name: Publish package
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Preparations
+        run: python3 -m pip install -U twine build
+
+      - name: Build
+        run: python3 -m build
+
+      - name: Check
+        run: twine check dist/*
+
+      - name: Publish ComfyCore
+        run: |
+          python3 -m twine upload --skip-existing dist/*.whl
+          python3 -m twine upload --skip-existing dist/*tar.gz
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
