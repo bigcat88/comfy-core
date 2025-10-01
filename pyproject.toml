@@ -1,0 +1,33 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatchling>=1.18",
+]
+
+[project]
+name = "comfy-core"
+description = "bla bla"
+readme = "README.md"
+keywords = [
+  "comfyui",
+  "metadata"
+]
+license = "GPL-3.0-only"
+authors = [
+  { name = "Comfyanonymous", email = "todo@icloud.com" },
+]
+requires-python = ">=3.9"
+classifiers = [
+  "Development Status :: 1 - Planning",
+]
+dynamic = [
+  "version",
+]
+[tool.hatch.version]
+path = "comfy_core/_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/comfy_core",
+  "/README.md",
+]
